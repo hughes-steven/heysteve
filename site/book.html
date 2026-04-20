@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Conversation — DIYDev</title>
+  <meta name="description" content="Book a 30-minute conversation to discuss your manufacturing software project.">
+  <meta property="og:title" content="Book a Conversation — DIYDev">
+  <meta property="og:description" content="Tell us what you've been thinking about building. A friendly 30-minute conversation about your idea.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://diydev.ca/book">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='transparent'/><text x='50%' y='52%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='42' font-weight='700' fill='%231a1a1a'>D</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: #faf9f7;
+      color: #1a1a1a;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    hr { border: none; height: 1px; background: #1a1a1a; opacity: 0.12; margin: 0; }
+
+    .label {
+      font-size: 12px; font-weight: 500; letter-spacing: 3px;
+      text-transform: uppercase; color: #999; margin-bottom: 40px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    nav .container {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav .brand {
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #1a1a1a; text-decoration: none;
+    }
+    nav .links { display: flex; gap: 24px; }
+    nav .links a {
+      font-size: 12px; font-weight: 500; letter-spacing: 1px;
+      text-transform: uppercase; color: #999; text-decoration: none;
+    }
+    nav .links a:hover { color: #1a1a1a; }
+    nav .links a.active { color: #1a1a1a; }
+
+    /* ── Page header ── */
+    .page-header { padding: 80px 0 40px; }
+    .page-header h1 {
+      font-size: 28px; font-weight: 800; line-height: 1.35;
+    }
+    .page-header p {
+      margin-top: 16px; font-size: 15px; color: #555; line-height: 1.8;
+    }
+
+    .prose {
+      font-size: 15px; font-weight: 400; color: #555; line-height: 1.85;
+    }
+    .prose strong { color: #1a1a1a; font-weight: 700; }
+    .prose + .prose { margin-top: 20px; }
+
+    /* ── How it works ── */
+    .steps {
+      list-style: none; margin-top: 40px;
+    }
+    .steps li {
+      font-size: 14px; font-weight: 500; color: #1a1a1a;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    .steps li:first-child {
+      border-top: 1px solid rgba(26,26,26,0.08);
+    }
+    .steps li span.num { color: #999; margin-right: 12px; }
+    .steps li em {
+      display: block; margin-top: 4px;
+      font-size: 13px; font-weight: 400; color: #555; font-style: normal;
+    }
+
+    /* ── Form ── */
+    .booking-form {
+      margin-top: 0;
+    }
+
+    .form-group {
+      margin-bottom: 0;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    .form-group:first-child {
+      border-top: 1px solid rgba(26,26,26,0.08);
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px; font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; color: #999;
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 400;
+      color: #1a1a1a;
+      background: transparent;
+      border: none;
+      outline: none;
+      line-height: 1.6;
+      resize: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #ccc;
+    }
+
+    .form-group select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      padding-right: 20px;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 32px;
+    }
+    .form-row .form-group {
+      border-top: 1px solid rgba(26,26,26,0.08);
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+
+    .submit-btn {
+      display: inline-block;
+      margin-top: 40px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #faf9f7; background: #1a1a1a;
+      border: none; cursor: pointer;
+      padding: 16px 32px;
+    }
+    .submit-btn:hover { background: #333; }
+    .submit-btn:disabled { background: #888; cursor: wait; }
+
+    .form-error {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: #fff1f1;
+      border-left: 3px solid #c0392b;
+      color: #c0392b;
+      font-size: 14px;
+      display: none;
+    }
+    .form-error.show { display: block; }
+
+    /* ── Confirmation ── */
+    .confirmation {
+      display: none;
+      padding: 60px 0;
+    }
+    .confirmation.show { display: block; }
+    .confirmation h2 {
+      font-size: 20px; font-weight: 800; margin-bottom: 16px;
+    }
+
+    .form-section { }
+    .form-section.hidden { display: none; }
+
+    /* ── Alt contact ── */
+    .alt-contact {
+      margin-top: 32px;
+    }
+    .alt-contact a {
+      display: block;
+      font-size: 14px; font-weight: 500; color: #1a1a1a;
+      text-decoration: none; padding: 12px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    .alt-contact a:first-child {
+      border-top: 1px solid rgba(26,26,26,0.08);
+    }
+    .alt-contact a:hover { color: #555; }
+    .alt-contact a span { color: #999; margin-right: 12px; }
+
+    /* ── Footer ── */
+    footer { padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: #999; letter-spacing: 1px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .page-header { padding: 60px 0 32px; }
+      .page-header h1 { font-size: 22px; }
+      section { padding: 60px 0; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      nav .links { gap: 16px; }
+    }
+
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .container { max-width: 100%; }
+      nav { display: none; }
+      .booking-form { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="brand">DD</a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/case-studies.html">Projects</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/book.html" class="active">Book</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <p class="label">// Book a Conversation</p>
+      <h1>Tell us what you've been thinking about building.</h1>
+      <p>A friendly 30-minute conversation about your idea and whether this approach makes sense for your team.</p>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ── How it works ── -->
+  <section>
+    <div class="container">
+      <p class="label">// How This Works</p>
+      <ul class="steps">
+        <li>
+          <span class="num">01</span> You fill out the form below.
+          <em>Takes about two minutes. Tell us what you're dealing with.</em>
+        </li>
+        <li>
+          <span class="num">02</span> We reply within one business day.
+          <em>With a few follow-up questions or a link to schedule the call.</em>
+        </li>
+        <li>
+          <span class="num">03</span> We talk for 30 minutes.
+          <em>You describe the problem. We'll tell you honestly whether we can help.</em>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ── Booking form ── -->
+  <section class="form-section" id="formSection">
+    <div class="container">
+      <p class="label">// Your Details</p>
+      <form class="booking-form" id="bookingForm" action="#" method="POST">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="title">Title / Role</label>
+            <input type="text" id="title" name="title" placeholder="e.g. Operations Manager">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Company name" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.ca" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="519-555-0100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="industry">Industry</label>
+          <select id="industry" name="industry" required>
+            <option value="" disabled selected>Select your industry</option>
+            <option value="cnc-machining">CNC Machining</option>
+            <option value="metal-fabrication">Metal Fabrication</option>
+            <option value="plastics-injection">Plastics / Injection Molding</option>
+            <option value="food-processing">Food Processing</option>
+            <option value="packaging">Packaging</option>
+            <option value="wood-products">Wood Products</option>
+            <option value="contract-manufacturing">Contract Manufacturing</option>
+            <option value="other">Other Manufacturing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="employees">Number of Employees</label>
+          <select id="employees" name="employees" required>
+            <option value="" disabled selected>Select range</option>
+            <option value="under-20">Under 20</option>
+            <option value="20-50">20 &ndash; 50</option>
+            <option value="50-100">50 &ndash; 100</option>
+            <option value="100-200">100 &ndash; 200</option>
+            <option value="200-plus">200+</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="problem">What are you dealing with?</label>
+          <textarea id="problem" name="problem" placeholder="Describe the process, the pain, the spreadsheet, the workaround — whatever you've been thinking about replacing." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="dream">What would the tool look like if it existed?</label>
+          <textarea id="dream" name="dream" placeholder="You've probably been sketching this in your head for a while. What does it do? Who uses it? What changes when it's running?"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Send &mdash; we'll be in touch</button>
+        <div class="form-error" id="formError"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── Confirmation ── -->
+  <section class="confirmation" id="confirmation">
+    <div class="container">
+      <p class="label">// Received</p>
+      <h2>Got it. I'll be in touch within one business day.</h2>
+      <p class="prose">
+        I'll read through what you've sent and reply with a few follow-up questions or a link to schedule our 30-minute call. Looking forward to hearing your idea.
+      </p>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ── Alt contact ── -->
+  <section>
+    <div class="container">
+      <p class="label">// Prefer to reach out directly?</p>
+      <div class="alt-contact">
+        <a href="https://linkedin.com/in/steven-hughes-consulting" target="_blank" rel="noopener">
+          <span>LinkedIn</span> steven-hughes-consulting
+        </a>
+        <a href="mailto:steven@diydev.ca">
+          <span>Email</span> steven@diydev.ca
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <footer>
+    <div class="container">
+      <p>diydev.ca</p>
+    </div>
+  </footer>
+
+  <script>
+    const INQUIRIES_ENDPOINT = 'https://7v3da0q0wh.execute-api.ca-central-1.amazonaws.com/inquiries';
+
+    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const form = e.currentTarget;
+      const submitBtn = document.getElementById('submitBtn');
+      const errorEl = document.getElementById('formError');
+
+      errorEl.classList.remove('show');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch(INQUIRIES_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error || 'Something went wrong. Please try again or email directly.');
+        }
+
+        document.getElementById('formSection').classList.add('hidden');
+        document.getElementById('confirmation').classList.add('show');
+        window.scrollTo({ top: document.getElementById('confirmation').offsetTop - 40, behavior: 'smooth' });
+      } catch (err) {
+        errorEl.textContent = err.message;
+        errorEl.classList.add('show');
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send — we'll be in touch";
+      }
+    });
+  </script>
+
+</body>
+</html>

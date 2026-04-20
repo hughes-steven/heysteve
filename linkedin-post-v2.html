@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1a1a1a;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .card {
+    width: 1080px;
+    height: 1080px;
+    background: #faf9f7;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 88px 80px;
+    color: #1a1a1a;
+  }
+
+  .top-section {
+    position: relative;
+  }
+
+  .category {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 56px;
+  }
+
+  .headline {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #1a1a1a;
+    max-width: 920px;
+  }
+
+  .headline .em {
+    background: #1a1a1a;
+    color: #faf9f7;
+    padding: 2px 12px;
+    display: inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .rule {
+    width: 100%;
+    height: 1px;
+    background: #1a1a1a;
+    opacity: 0.15;
+  }
+
+  .mid-section {
+    position: relative;
+  }
+
+  .body-text {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 2;
+    color: #555;
+  }
+
+  .body-text .strong {
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+
+  .bottom-section {
+    position: relative;
+  }
+
+  .pillars {
+    display: flex;
+    gap: 0;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .pillar {
+    padding: 18px 36px;
+    border: 1.5px solid #1a1a1a;
+    margin-right: -1.5px;
+    text-transform: uppercase;
+  }
+
+  .pillar.filled {
+    background: #1a1a1a;
+    color: #faf9f7;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .its-yours {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+  }
+
+  .contact {
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 1px;
+  }
+
+</style>
+</head>
+<body>
+  <div class="card">
+
+    <div class="top-section">
+      <div class="category">// Canadian Manufacturing</div>
+      <h1 class="headline">
+        I train manufacturing teams to build <span class="em">their own software.</span>
+      </h1>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="mid-section">
+      <p class="body-text">
+        <span class="strong">Your ideas.</span> Your code. Your team.<br>
+        No subscriptions. No vendor lock-in.<br>
+        <span class="strong">8 weeks. Fixed price.</span>
+      </p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="bottom-section">
+      <div class="pillars">
+        <div class="pillar">Host</div>
+        <div class="pillar">Modify</div>
+        <div class="pillar filled">Sell</div>
+      </div>
+      <div class="footer">
+        <span class="its-yours">It's yours.</span>
+        <span class="contact">Let's talk →</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

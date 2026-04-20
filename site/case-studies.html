@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — DIYDev</title>
+  <meta name="description" content="Our industrial software background. Over twenty years and more than 20 companies, spanning quoting, digital twins, factory automation, CAD, and more.">
+  <meta property="og:title" content="Projects — DIYDev">
+  <meta property="og:description" content="Our industrial software background across two decades and 20+ companies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://diydev.ca/case-studies">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='transparent'/><text x='50%' y='52%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='42' font-weight='700' fill='%231a1a1a'>D</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: #faf9f7;
+      color: #1a1a1a;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    hr { border: none; height: 1px; background: #1a1a1a; opacity: 0.12; margin: 0; }
+
+    .label {
+      font-size: 12px; font-weight: 500; letter-spacing: 3px;
+      text-transform: uppercase; color: #999; margin-bottom: 40px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    nav .container {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav .brand {
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #1a1a1a; text-decoration: none;
+    }
+    nav .links { display: flex; gap: 24px; }
+    nav .links a {
+      font-size: 12px; font-weight: 500; letter-spacing: 1px;
+      text-transform: uppercase; color: #999; text-decoration: none;
+    }
+    nav .links a:hover { color: #1a1a1a; }
+    nav .links a.active { color: #1a1a1a; }
+
+    /* ── Page header ── */
+    .page-header { padding: 80px 0 40px; }
+    .page-header h1 {
+      font-size: 28px; font-weight: 800; line-height: 1.35;
+    }
+    .page-header p {
+      margin-top: 16px; font-size: 15px; color: #555; line-height: 1.8;
+    }
+
+    /* ── Case study ── */
+    .case-study { padding: 60px 0; }
+
+    .case-meta {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .case-meta-item {
+      font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .case-meta-item span { color: #999; display: block; margin-bottom: 4px; }
+    .case-meta-item strong { color: #1a1a1a; font-weight: 700; }
+
+    .case-study h2 {
+      font-size: 20px; font-weight: 800; margin-bottom: 24px; line-height: 1.4;
+    }
+    .case-study h2 .em {
+      background: #1a1a1a; color: #faf9f7;
+      padding: 2px 6px; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+    }
+
+    .prose {
+      font-size: 15px; font-weight: 400; color: #555; line-height: 1.85;
+    }
+    .prose strong { color: #1a1a1a; font-weight: 700; }
+    .prose + .prose { margin-top: 20px; }
+
+    .results {
+      margin-top: 32px; list-style: none;
+    }
+    .results li {
+      font-size: 14px; font-weight: 500; color: #1a1a1a;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    .results li:first-child {
+      border-top: 1px solid rgba(26,26,26,0.08);
+    }
+    .results li span { color: #999; margin-right: 12px; }
+
+    .case-quote {
+      margin-top: 32px; padding-left: 20px;
+      border-left: 2px solid #1a1a1a;
+    }
+    .case-quote p {
+      font-size: 14px; color: #1a1a1a; font-weight: 500;
+      line-height: 1.8; font-style: italic;
+    }
+    .case-quote cite {
+      display: block; margin-top: 8px;
+      font-size: 12px; color: #999; font-style: normal;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+
+    /* ── CTA ── */
+    .cta-link {
+      display: inline-block; margin-top: 32px;
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #faf9f7; background: #1a1a1a;
+      text-decoration: none; padding: 14px 28px;
+    }
+    .cta-link:hover { background: #333; }
+
+    /* ── Footer ── */
+    footer { padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: #999; letter-spacing: 1px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .page-header { padding: 60px 0 32px; }
+      .page-header h1 { font-size: 22px; }
+      .case-study { padding: 48px 0; }
+      .case-study h2 { font-size: 17px; }
+      .case-meta { gap: 16px; }
+      nav .links { gap: 16px; }
+    }
+
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .container { max-width: 100%; }
+      section, .case-study { padding: 24pt 0; page-break-inside: avoid; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="brand">DD</a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/case-studies.html" class="active">Projects</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/book.html">Book</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <p class="label">// Projects</p>
+      <h1>Our background.</h1>
+      <p>Between us, we've delivered software for more than 20 companies across our careers &mdash; from 5-person shops to 300,000-person enterprises. That range of projects is the foundation we bring to every DIYDev engagement.</p>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ── BY THE NUMBERS ── -->
+  <section>
+    <div class="container">
+      <p class="label">// By the Numbers</p>
+      <ul class="results">
+        <li><span>Companies delivered for</span> <strong>20+</strong></li>
+        <li><span>Combined industry experience</span> <strong>30+ years</strong></li>
+        <li><span>Smallest team</span> <strong>5 employees</strong></li>
+        <li><span>Largest team</span> <strong>300,000 employees</strong></li>
+        <li><span>Based in</span> <strong>Kitchener, Ontario</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ── WHAT WE'VE BUILT ── -->
+  <section>
+    <div class="container">
+      <p class="label">// What We've Built</p>
+      <p class="prose">
+        The shape of industrial software changes from shop to shop. A quoting engine for a machine shop runs nothing like a digital twin for a production line. But the pattern we've seen across every project is the same &mdash; the person closest to the problem already knows what the tool should do. That insight is what DIYDev is built on.
+      </p>
+      <p class="prose">
+        Projects across our careers have spanned:
+      </p>
+      <ul class="results">
+        <li>Factory floor automation</li>
+        <li>Equipment simulation and programming</li>
+        <li>Digital twins</li>
+        <li>Production line routing</li>
+        <li>Ecommerce</li>
+        <li>Quoting</li>
+        <li>Purchasing</li>
+        <li>Inventory</li>
+        <li>Marketplace platforms</li>
+        <li>CAD design automation</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ── CTA ── -->
+  <section>
+    <div class="container">
+      <p class="label">// Your Turn</p>
+      <p class="prose">
+        If you've been thinking about a tool like this, we'd enjoy hearing about it. Your team already knows the problem &mdash; that's the hardest part.
+      </p>
+      <a href="/book.html" class="cta-link">Book a conversation</a>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <footer>
+    <div class="container">
+      <p>diydev.ca</p>
+    </div>
+  </footer>
+
+</body>
+</html>

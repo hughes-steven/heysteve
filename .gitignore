@@ -1,0 +1,16 @@
+# secrets / env
+env
+.env
+.env.*
+*.pem
+
+# OS
+.DS_Store
+
+# Node / CDK
+node_modules/
+cdk.out/
+*.tsbuildinfo
+
+# Logs
+*.log

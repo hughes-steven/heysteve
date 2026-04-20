@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pricing — DIYDev</title>
+  <meta name="description" content="Fixed-price manufacturing software engagements. $25K to train your team, $50K to include the hardware and setup.">
+  <meta property="og:title" content="Pricing — DIYDev">
+  <meta property="og:description" content="Two options. Fixed price. You own everything.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://diydev.ca/pricing">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='transparent'/><text x='50%' y='52%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='42' font-weight='700' fill='%231a1a1a'>D</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: #faf9f7;
+      color: #1a1a1a;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    hr { border: none; height: 1px; background: #1a1a1a; opacity: 0.12; margin: 0; }
+
+    .label {
+      font-size: 12px; font-weight: 500; letter-spacing: 3px;
+      text-transform: uppercase; color: #999; margin-bottom: 40px;
+    }
+
+    /* ── Nav ── */
+    nav { padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.08); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    nav .brand {
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #1a1a1a; text-decoration: none;
+    }
+    nav .links { display: flex; gap: 24px; }
+    nav .links a {
+      font-size: 12px; font-weight: 500; letter-spacing: 1px;
+      text-transform: uppercase; color: #999; text-decoration: none;
+    }
+    nav .links a:hover { color: #1a1a1a; }
+    nav .links a.active { color: #1a1a1a; }
+
+    /* ── Page header ── */
+    .page-header { padding: 80px 0 40px; }
+    .page-header h1 { font-size: 28px; font-weight: 800; line-height: 1.35; }
+    .page-header p { margin-top: 16px; font-size: 15px; color: #555; line-height: 1.8; }
+
+    .prose { font-size: 15px; font-weight: 400; color: #555; line-height: 1.85; }
+    .prose strong { color: #1a1a1a; font-weight: 700; }
+    .prose + .prose { margin-top: 20px; }
+
+    /* ── Pricing tiers ── */
+    .tier {
+      padding: 60px 0;
+    }
+
+    .tier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tier-name {
+      font-size: 12px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #999;
+    }
+
+    .tier-price {
+      font-size: 32px; font-weight: 800; line-height: 1;
+    }
+
+    .tier-subtitle {
+      font-size: 15px; font-weight: 700; color: #1a1a1a;
+      margin-bottom: 20px; line-height: 1.5;
+    }
+
+    .tier-desc {
+      font-size: 14px; color: #555; line-height: 1.85;
+    }
+    .tier-desc + .tier-desc { margin-top: 16px; }
+
+    .tier-includes {
+      margin-top: 32px; list-style: none;
+    }
+    .tier-includes li {
+      font-size: 13px; font-weight: 500; color: #1a1a1a;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    .tier-includes li:first-child {
+      border-top: 1px solid rgba(26,26,26,0.08);
+    }
+    .tier-includes li span { color: #999; margin-right: 8px; }
+
+    .tier-cta {
+      display: inline-block; margin-top: 28px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #1a1a1a;
+      text-decoration: none; padding: 12px 0;
+      border-bottom: 1.5px solid #1a1a1a;
+    }
+    .tier-cta:hover { color: #555; border-color: #555; }
+
+    /* ── Featured tier ── */
+    .tier.featured {
+      background: #1a1a1a;
+      color: #faf9f7;
+      margin: 0 -24px;
+      padding: 60px 24px;
+    }
+    .tier.featured .tier-name { color: #777; }
+    .tier.featured .tier-subtitle { color: #faf9f7; }
+    .tier.featured .tier-desc { color: #aaa; }
+    .tier.featured .tier-includes li {
+      color: #e8e8e8;
+      border-color: rgba(255,255,255,0.12);
+    }
+    .tier.featured .tier-includes li span { color: #777; }
+    .tier.featured .tier-cta {
+      color: #faf9f7; border-color: #faf9f7;
+    }
+    .tier.featured .tier-cta:hover { color: #ccc; border-color: #ccc; }
+
+    /* ── Common questions ── */
+    .faq-item { padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.08); }
+    .faq-item:first-child { border-top: 1px solid rgba(26,26,26,0.08); }
+    .faq-item h3 {
+      font-size: 14px; font-weight: 700; color: #1a1a1a;
+      margin-bottom: 8px; line-height: 1.5;
+    }
+    .faq-item p {
+      font-size: 13px; color: #555; line-height: 1.8;
+    }
+
+    /* ── CTA ── */
+    .cta-link {
+      display: inline-block; margin-top: 32px;
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #faf9f7; background: #1a1a1a;
+      text-decoration: none; padding: 14px 28px;
+    }
+    .cta-link:hover { background: #333; }
+
+    /* ── Footer ── */
+    footer { padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: #999; letter-spacing: 1px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .page-header { padding: 60px 0 32px; }
+      .page-header h1 { font-size: 22px; }
+      section { padding: 60px 0; }
+      .tier { padding: 48px 0; }
+      .tier-price { font-size: 26px; }
+      .tier.featured { margin: 0 -24px; padding: 48px 24px; }
+      nav .links { gap: 16px; }
+    }
+
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .container { max-width: 100%; }
+      section, .tier { padding: 24pt 0; page-break-inside: avoid; }
+      nav { display: none; }
+      .tier.featured { background: white; color: #1a1a1a; margin: 0; padding: 24pt 0; }
+      .tier.featured .tier-subtitle, .tier.featured .tier-includes li { color: #1a1a1a; }
+      .tier.featured .tier-desc { color: #555; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="brand">DD</a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/case-studies.html">Projects</a>
+        <a href="/pricing.html" class="active">Pricing</a>
+        <a href="/book.html">Book</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <p class="label">// Pricing</p>
+      <h1>Fixed price. Clear scope.</h1>
+      <p>Every engagement is scoped upfront so you know exactly what you're paying and what you're getting. Two options &mdash; same 8-week training program, different levels of setup.</p>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ── TIER 1: $25K Training ── -->
+  <div class="container">
+    <div class="tier featured">
+      <div class="tier-header">
+        <span class="tier-name">// Training</span>
+        <span class="tier-price">$25,000</span>
+      </div>
+      <p class="tier-subtitle">8 weeks. Your team, building their own software.</p>
+      <p class="tier-desc">
+        Most teams already know exactly what tool they need &mdash; they've been sketching it on whiteboards and working around it in spreadsheets for years. This engagement gets them building it. Eight weeks, hands-on, working alongside us on your actual workflow. By the end, they've shipped something real and know how to build the next one themselves.
+      </p>
+      <p class="tier-desc">
+        Runs on hardware you already have. A spare desktop, a mini PC, whatever's sitting unused works fine.
+      </p>
+      <ul class="tier-includes">
+        <li><span>&mdash;</span> 8-week engagement</li>
+        <li><span>&mdash;</span> Training for up to 2 team members</li>
+        <li><span>&mdash;</span> Full source code ownership</li>
+        <li><span>&mdash;</span> Complete documentation and runbooks</li>
+        <li><span>&mdash;</span> Deployed on your existing hardware</li>
+        <li><span>&mdash;</span> 4 weeks of post-launch support</li>
+      </ul>
+      <a href="/book.html" class="tier-cta">Book a conversation &rarr;</a>
+    </div>
+  </div>
+
+  <div class="container"><hr></div>
+
+  <!-- ── TIER 2: $50K Turnkey ── -->
+  <div class="container">
+    <div class="tier">
+      <div class="tier-header">
+        <span class="tier-name">// Turnkey</span>
+        <span class="tier-price">$50,000</span>
+      </div>
+      <p class="tier-subtitle">Everything in Training. Plus hardware, delivered and configured.</p>
+      <p class="tier-desc">
+        Same 8-week program &mdash; your team builds their own software alongside us and walks away owning everything. The difference is what arrives on day one: a pre-configured server, ready to plug in.
+      </p>
+      <p class="tier-desc">
+        Includes a dedicated server (NUC or rack-mount, chosen for your environment) with Docker, backups, and networking set up for your facility. Your data stays in your building, on hardware you own. Zero infrastructure homework, zero IT setup to figure out.
+      </p>
+      <ul class="tier-includes">
+        <li><span>&mdash;</span> 8-week engagement</li>
+        <li><span>&mdash;</span> Training for up to 3 team members</li>
+        <li><span>&mdash;</span> Full source code ownership</li>
+        <li><span>&mdash;</span> Complete documentation, runbooks, and admin guide</li>
+        <li><span>&mdash;</span> Dedicated server hardware, pre-configured</li>
+        <li><span>&mdash;</span> On-site installation and network setup</li>
+        <li><span>&mdash;</span> 8 weeks of post-launch support</li>
+      </ul>
+      <a href="/book.html" class="tier-cta">Book a conversation &rarr;</a>
+    </div>
+  </div>
+
+  <div class="container"><hr></div>
+
+  <!-- ── COMMON QUESTIONS ── -->
+  <section>
+    <div class="container">
+      <p class="label">// Common Questions</p>
+
+      <div class="faq-item">
+        <h3>What if my project falls between two tiers?</h3>
+        <p>Most do. The tiers are starting points. We'll scope your project in our first conversation and land on a fixed price that matches the actual work.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What does "your team is involved" actually mean?</h3>
+        <p>One or two people from your team work alongside us for the duration. They're actively building, and by the end they understand the system well enough to modify, fix, and extend it on their own.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do I need IT infrastructure?</h3>
+        <p>For the Training tier, we deploy on hardware you already have &mdash; often a spare desktop or mini PC. The Turnkey tier includes purpose-built server hardware delivered and configured for your environment. It's all designed to be straightforward.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What happens after the engagement ends?</h3>
+        <p>You keep everything &mdash; the code, the documentation, the skills. Post-launch support is included in every tier for follow-up questions and minor adjustments. After that, your team is equipped to keep going independently. If you want ongoing support, we can arrange that separately.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I sell the software we build?</h3>
+        <p>Yes. You own the IP completely. If you build a tool that solves a problem other shops have, you're free to license it, sell it, or white-label it. Several clients have turned their project into a recurring revenue stream.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ── CTA ── -->
+  <section>
+    <div class="container">
+      <p class="label">// Ready?</p>
+      <p class="prose">
+        We'd enjoy hearing about what you've been thinking of building. We'll figure out the right scope together.
+      </p>
+      <a href="/book.html" class="cta-link">Book a conversation</a>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <footer>
+    <div class="container">
+      <p>diydev.ca</p>
+    </div>
+  </footer>
+
+</body>
+</html>
