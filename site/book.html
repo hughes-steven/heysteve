@@ -385,42 +385,37 @@
   </footer>
 
   <script>
-    const INQUIRIES_ENDPOINT = 'https://7v3da0q0wh.execute-api.ca-central-1.amazonaws.com/inquiries';
+    const CONTACT_EMAIL = 'hughes.steven@outlook.com';
 
-    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const form = e.currentTarget;
-      const submitBtn = document.getElementById('submitBtn');
-      const errorEl = document.getElementById('formError');
+      const data = Object.fromEntries(new FormData(form).entries());
 
-      errorEl.classList.remove('show');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
+      const lines = [
+        `Name: ${data.name || ''}`,
+        `Title: ${data.title || ''}`,
+        `Company: ${data.company || ''}`,
+        `Email: ${data.email || ''}`,
+        `Phone: ${data.phone || ''}`,
+        `Industry: ${data.industry || ''}`,
+        `Employees: ${data.employees || ''}`,
+        '',
+        'Problem:',
+        data.problem || '',
+        '',
+        'Dream:',
+        data.dream || '',
+      ];
 
-      const payload = Object.fromEntries(new FormData(form).entries());
+      const subject = `Inquiry from ${data.name || 'website'}${data.company ? ` (${data.company})` : ''}`;
+      const body = lines.join('\n');
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      try {
-        const res = await fetch(INQUIRIES_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const data = await res.json().catch(() => ({}));
-
-        if (!res.ok || !data.ok) {
-          throw new Error(data.error || 'Something went wrong. Please try again or email directly.');
-        }
-
-        document.getElementById('formSection').classList.add('hidden');
-        document.getElementById('confirmation').classList.add('show');
-        window.scrollTo({ top: document.getElementById('confirmation').offsetTop - 40, behavior: 'smooth' });
-      } catch (err) {
-        errorEl.textContent = err.message;
-        errorEl.classList.add('show');
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send, I'll be in touch";
-      }
+      document.getElementById('formSection').classList.add('hidden');
+      document.getElementById('confirmation').classList.add('show');
+      window.scrollTo({ top: document.getElementById('confirmation').offsetTop - 40, behavior: 'smooth' });
     });
   </script>
 
