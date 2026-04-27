@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Book a Conversation | Steven</title>
-  <meta name="description" content="Book a 30-minute conversation to discuss your manufacturing software project.">
-  <meta property="og:title" content="Book a Conversation | Steven">
-  <meta property="og:description" content="Tell me what you've been thinking about building. A friendly 30-minute conversation about your idea.">
+  <title>Contact | Steven</title>
+  <meta name="description" content="Get in touch about your manufacturing software project. I'll do my best to reply within the same business day.">
+  <meta property="og:title" content="Contact | Steven">
+  <meta property="og:description" content="Reach out directly. I'll do my best to get back to you within the same business day.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://heysteve.ca/book">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='transparent'/><text x='50%' y='52%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='42' font-weight='700' fill='%231a1a1a'>S</text></svg>">
@@ -86,108 +86,20 @@
       font-size: 13px; font-weight: 400; color: #555; font-style: normal;
     }
 
-    /* ── Form ── */
-    .booking-form {
-      margin-top: 0;
-    }
-
-    .form-group {
-      margin-bottom: 0;
-      padding: 24px 0;
+    /* ── What to include ── */
+    .checklist { list-style: none; margin-top: 24px; }
+    .checklist li {
+      font-size: 14px; font-weight: 500; color: #1a1a1a;
+      padding: 16px 0;
       border-bottom: 1px solid rgba(26,26,26,0.08);
     }
-    .form-group:first-child {
+    .checklist li:first-child {
       border-top: 1px solid rgba(26,26,26,0.08);
     }
-
-    .form-group label {
-      display: block;
-      font-size: 12px; font-weight: 500; letter-spacing: 2px;
-      text-transform: uppercase; color: #999;
-      margin-bottom: 10px;
+    .checklist li em {
+      display: block; margin-top: 4px;
+      font-size: 13px; font-weight: 400; color: #555; font-style: normal;
     }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 15px;
-      font-weight: 400;
-      color: #1a1a1a;
-      background: transparent;
-      border: none;
-      outline: none;
-      line-height: 1.6;
-      resize: none;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #ccc;
-    }
-
-    .form-group select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 0 center;
-      padding-right: 20px;
-    }
-
-    .form-group textarea {
-      min-height: 100px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 32px;
-    }
-    .form-row .form-group {
-      border-top: 1px solid rgba(26,26,26,0.08);
-      border-bottom: 1px solid rgba(26,26,26,0.08);
-    }
-
-    .submit-btn {
-      display: inline-block;
-      margin-top: 40px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #faf9f7; background: #1a1a1a;
-      border: none; cursor: pointer;
-      padding: 16px 32px;
-    }
-    .submit-btn:hover { background: #333; }
-    .submit-btn:disabled { background: #888; cursor: wait; }
-
-    .form-error {
-      margin-top: 20px;
-      padding: 12px 16px;
-      background: #fff1f1;
-      border-left: 3px solid #c0392b;
-      color: #c0392b;
-      font-size: 14px;
-      display: none;
-    }
-    .form-error.show { display: block; }
-
-    /* ── Confirmation ── */
-    .confirmation {
-      display: none;
-      padding: 60px 0;
-    }
-    .confirmation.show { display: block; }
-    .confirmation h2 {
-      font-size: 20px; font-weight: 800; margin-bottom: 16px;
-    }
-
-    .form-section { }
-    .form-section.hidden { display: none; }
 
     /* ── Alt contact ── */
     .alt-contact {
@@ -214,7 +126,6 @@
       .page-header { padding: 60px 0 32px; }
       .page-header h1 { font-size: 22px; }
       section { padding: 60px 0; }
-      .form-row { grid-template-columns: 1fr; gap: 0; }
       nav .links { gap: 16px; }
     }
 
@@ -222,7 +133,6 @@
       body { background: white; font-size: 11pt; }
       .container { max-width: 100%; }
       nav { display: none; }
-      .booking-form { display: none; }
     }
   </style>
 </head>
@@ -242,7 +152,7 @@
 
   <section class="page-header">
     <div class="container">
-      <p class="label">// Book a Conversation</p>
+      <p class="label">// Contact</p>
       <h1>Tell me what you've been thinking about building.</h1>
       <p>A friendly 30-minute conversation about your idea and whether this approach makes sense for your team.</p>
     </div>
@@ -256,11 +166,11 @@
       <p class="label">// How This Works</p>
       <ul class="steps">
         <li>
-          <span class="num">01</span> You fill out the form below.
-          <em>Takes about two minutes. Tell me what you're dealing with.</em>
+          <span class="num">01</span> You reach out directly.
+          <em>Email, phone, or LinkedIn &mdash; whichever is easiest. Tell me what you're dealing with.</em>
         </li>
         <li>
-          <span class="num">02</span> I reply within one business day.
+          <span class="num">02</span> I reply within the same business day.
           <em>With a few follow-up questions or a link to schedule the call.</em>
         </li>
         <li>
@@ -273,106 +183,56 @@
 
   <div class="container"><hr></div>
 
-  <!-- ── Booking form ── -->
-  <section class="form-section" id="formSection">
+  <!-- ── Get in touch ── -->
+  <section>
     <div class="container">
-      <p class="label">// Your Details</p>
-      <form class="booking-form" id="bookingForm" action="#" method="POST">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <label for="title">Title / Role</label>
-            <input type="text" id="title" name="title" placeholder="e.g. Operations Manager">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="company">Company</label>
-          <input type="text" id="company" name="company" placeholder="Company name" required>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@company.ca" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone (optional)</label>
-            <input type="tel" id="phone" name="phone" placeholder="519-555-0100">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="industry">Industry</label>
-          <select id="industry" name="industry" required>
-            <option value="" disabled selected>Select your industry</option>
-            <option value="cnc-machining">CNC Machining</option>
-            <option value="metal-fabrication">Metal Fabrication</option>
-            <option value="plastics-injection">Plastics / Injection Molding</option>
-            <option value="food-processing">Food Processing</option>
-            <option value="packaging">Packaging</option>
-            <option value="wood-products">Wood Products</option>
-            <option value="contract-manufacturing">Contract Manufacturing</option>
-            <option value="other">Other Manufacturing</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="employees">Number of Employees</label>
-          <select id="employees" name="employees" required>
-            <option value="" disabled selected>Select range</option>
-            <option value="under-20">Under 20</option>
-            <option value="20-50">20 &ndash; 50</option>
-            <option value="50-100">50 &ndash; 100</option>
-            <option value="100-200">100 &ndash; 200</option>
-            <option value="200-plus">200+</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="problem">What are you dealing with?</label>
-          <textarea id="problem" name="problem" placeholder="Describe the process, the pain, the spreadsheet, the workaround. Whatever you've been thinking about replacing." required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="dream">What would the tool look like if it existed?</label>
-          <textarea id="dream" name="dream" placeholder="You've probably been sketching this in your head for a while. What does it do? Who uses it? What changes when it's running?"></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn" id="submitBtn">Send, I'll be in touch</button>
-        <div class="form-error" id="formError"></div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ── Confirmation ── -->
-  <section class="confirmation" id="confirmation">
-    <div class="container">
-      <p class="label">// Received</p>
-      <h2>Got it. I'll be in touch within one business day.</h2>
+      <p class="label">// Get In Touch</p>
       <p class="prose">
-        I'll read through what you've sent and reply with a few follow-up questions or a link to schedule our 30-minute call. Looking forward to hearing your idea.
+        You're welcome to <strong>contact me directly</strong> &mdash; drop me an email, give me a call, or send a message on LinkedIn. I read everything that comes in and I'll do my best to get back to you <strong>within the same business day</strong>.
       </p>
+      <div class="alt-contact">
+        <a href="mailto:hughes.steven@outlook.com"><span>Email</span> hughes.steven@outlook.com</a>
+        <a href="tel:+15194988239"><span>Phone</span> 1-519-498-8239</a>
+        <a href="https://linkedin.com/in/steven-hughes-consulting" target="_blank" rel="noopener"><span>LinkedIn</span> /in/steven-hughes-consulting</a>
+      </div>
     </div>
   </section>
 
   <div class="container"><hr></div>
 
-  <!-- ── Alt contact ── -->
+  <!-- ── What to include ── -->
   <section>
     <div class="container">
-      <p class="label">// Prefer to reach out directly?</p>
-      <div class="alt-contact">
-        <a href="https://linkedin.com/in/steven-hughes-consulting" target="_blank" rel="noopener" aria-label="Steven on LinkedIn">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .78 0 1.73v20.53C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.73C24 .78 23.2 0 22.22 0z"/></svg>
-        </a>
-        <a href="tel:+15194988239"><span>Phone</span> 1-519-498-8239</a>
-        <a href="mailto:hughes.steven@outlook.com"><span>Email</span> hughes.steven@outlook.com</a>
-      </div>
+      <p class="label">// What To Include In Your Email</p>
+      <p class="prose">
+        No formal template needed &mdash; but the more I know going in, the better I can prepare for our call. A few things that help:
+      </p>
+      <ul class="checklist">
+        <li>
+          Your name and role
+          <em>e.g. Operations Manager, Plant Engineer, Owner.</em>
+        </li>
+        <li>
+          Your company
+          <em>And the best phone number to reach you on, if you'd prefer a call back.</em>
+        </li>
+        <li>
+          Your industry
+          <em>CNC machining, metal fabrication, plastics / injection molding, food processing, packaging, wood products, contract manufacturing &mdash; or something else.</em>
+        </li>
+        <li>
+          Number of employees
+          <em>Under 20, 20&ndash;50, 50&ndash;100, 100&ndash;200, or 200+.</em>
+        </li>
+        <li>
+          What you're dealing with
+          <em>Describe the process, the pain, the spreadsheet, the workaround. Whatever you've been thinking about replacing.</em>
+        </li>
+        <li>
+          What the tool would look like if it existed
+          <em>You've probably been sketching this in your head for a while. What does it do? Who uses it? What changes when it's running?</em>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -383,41 +243,6 @@
       <p>heysteve.ca</p>
     </div>
   </footer>
-
-  <script>
-    const CONTACT_EMAIL = 'hughes.steven@outlook.com';
-
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const form = e.currentTarget;
-      const data = Object.fromEntries(new FormData(form).entries());
-
-      const lines = [
-        `Name: ${data.name || ''}`,
-        `Title: ${data.title || ''}`,
-        `Company: ${data.company || ''}`,
-        `Email: ${data.email || ''}`,
-        `Phone: ${data.phone || ''}`,
-        `Industry: ${data.industry || ''}`,
-        `Employees: ${data.employees || ''}`,
-        '',
-        'Problem:',
-        data.problem || '',
-        '',
-        'Dream:',
-        data.dream || '',
-      ];
-
-      const subject = `Inquiry from ${data.name || 'website'}${data.company ? ` (${data.company})` : ''}`;
-      const body = lines.join('\n');
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      document.getElementById('formSection').classList.add('hidden');
-      document.getElementById('confirmation').classList.add('show');
-      window.scrollTo({ top: document.getElementById('confirmation').offsetTop - 40, behavior: 'smooth' });
-    });
-  </script>
 
 </body>
 </html>
