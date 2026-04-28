@@ -44,6 +44,7 @@
     nav {
       padding: 24px 0;
       border-bottom: 1px solid rgba(26,26,26,0.08);
+      position: relative;
     }
     nav .container {
       display: flex; justify-content: space-between; align-items: center;
@@ -53,12 +54,43 @@
       text-transform: uppercase; color: #1a1a1a; text-decoration: none;
       white-space: nowrap;
     }
-    nav .links { display: flex; gap: 24px; }
+    .nav-toggle {
+      appearance: none; -webkit-appearance: none;
+      background: transparent; border: none; cursor: pointer;
+      width: 32px; height: 32px; padding: 0;
+      display: inline-flex; flex-direction: column;
+      justify-content: center; align-items: center; gap: 5px;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: #1a1a1a;
+      transition: transform 200ms ease, opacity 200ms ease;
+      transform-origin: center;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    nav .links {
+      display: none;
+      position: absolute;
+      top: 100%; right: 24px;
+      flex-direction: column;
+      background: #faf9f7;
+      border: 1px solid rgba(26,26,26,0.08);
+      border-top: none;
+      min-width: 200px;
+      padding: 8px 0;
+      z-index: 100;
+    }
+    nav .links.open { display: flex; }
     nav .links a {
+      display: block;
+      padding: 12px 24px;
       font-size: 12px; font-weight: 500; letter-spacing: 1px;
       text-transform: uppercase; color: #999; text-decoration: none;
+      white-space: nowrap;
     }
-    nav .links a:hover { color: #1a1a1a; }
+    nav .links a:hover { color: #1a1a1a; background: rgba(26,26,26,0.03); }
     nav .links a.active { color: #1a1a1a; }
 
     /* ── Section spacing ── */
@@ -267,8 +299,6 @@
         margin-right: 0;
         margin-bottom: -1.5px;
       }
-
-      nav .links { gap: 16px; }
     }
 
     /* ── Print ── */
@@ -308,7 +338,10 @@
   <nav>
     <div class="container">
       <a href="index.html" class="brand">HEY&nbsp;STEVE</a>
-      <div class="links">
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="links" id="navMenu">
         <a href="index.html" class="active">Home</a>
         <a href="case-studies.html">Projects</a>
         <a href="pricing.html">Pricing</a>
@@ -468,6 +501,28 @@
       <p>heysteve.ca</p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-toggle');
+      const menu = document.getElementById('navMenu');
+      if (!toggle || !menu) return;
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menu.classList.toggle('open', open);
+      }
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
 
 </body>
 </html>
