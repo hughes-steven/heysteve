@@ -33,8 +33,8 @@
     }
 
     /* ── Nav ── */
-    nav { padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.08); position: relative; }
-    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    nav { padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.08); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; position: relative; }
     nav .brand {
       font-size: 13px; font-weight: 700; letter-spacing: 2px;
       text-transform: uppercase; color: #1a1a1a; text-decoration: none;
@@ -59,11 +59,10 @@
     nav .links {
       display: none;
       position: absolute;
-      top: 100%; right: 24px;
+      top: calc(100% + 24px); right: 24px;
       flex-direction: column;
       background: #faf9f7;
       border: 1px solid rgba(26,26,26,0.08);
-      border-top: none;
       min-width: 200px;
       padding: 8px 0;
       z-index: 100;
